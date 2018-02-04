@@ -22,15 +22,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/plinfra-cd4/.cache//repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/shien/.cache//repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/plinfra-cd4/.cache/')
-  call dein#begin('/home/plinfra-cd4/.cache/')
+if dein#load_state('/home/shien/.cache/')
+  call dein#begin('/home/shien/.cache/')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/plinfra-cd4/.cache//repos/github.com/Shougo/dein.vim')
+  call dein#add('/home/shien/.cache//repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')

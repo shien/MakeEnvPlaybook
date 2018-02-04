@@ -39,3 +39,13 @@
     - group: {{ user }}
     - mode: 700
     - skip_verify: True
+
+/home/{{ user }}/src:
+   file.directory:
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 755
+    - recurse:
+      - user
+      - group
+      - mode
