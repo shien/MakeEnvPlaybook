@@ -40,6 +40,14 @@
     - mode: 700
     - skip_verify: True
 
+/home/{{ user }}/.tmux.conf:
+  file.managed:
+    - source: salt://files/tmux.conf
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 700
+    - skip_verify: True
+
 /home/{{ user }}/src:
    file.directory:
     - user: {{ user }}
