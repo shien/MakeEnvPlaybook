@@ -4,3 +4,4 @@ base:
     - user
     - vim
     - go
+    - mariadb
