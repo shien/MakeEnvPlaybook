@@ -30,3 +30,7 @@ go get github.com/revel/revel:
 go get github.com/revel/cmd/revel:
   cmd.run:
     - runas: {{ user }}
+
+go get github.com/nlopes/slack:
+  cmd.run:
+    - runas: {{ user }}
