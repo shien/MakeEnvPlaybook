@@ -1,4 +1,5 @@
 {% set user = 'shien' %}
+{% set go_version = '1.10.1' %}
 
 /home/{{ user }}/go:
   file.directory:
@@ -7,9 +8,9 @@
     - mode: 755
     - makedirs: True
 
-/tmp/go1.9.2.linux-amd64.tar.gz:
+/tmp/go{{ go_version }}.linux-amd64.tar.gz:
   file.managed:
-    - source: https://dl.google.com/go/go1.9.2.linux-amd64.tar.gz
+    - source: https://dl.google.com/go/go{{ go_version }}.linux-amd64.tar.gz
     - user: {{ user }}
     - group: {{ user }}
     - mode: 644
@@ -17,11 +18,11 @@
 
 extract_go:
   archive.extracted:
-  - name: /home/{{ user }}/src/go1.9.2
-  - source: /tmp/go1.9.2.linux-amd64.tar.gz
+  - name: /home/{{ user }}/src/go{{ go_version }}
+  - source: /tmp/go{{ go_version }}.linux-amd64.tar.gz
   - user: {{ user }}
   - group: {{ user }}
-  - if_missing: /home/{{ user }}/src/go1.9.2
+  - if_missing: /home/{{ user }}/src/go{{ go_version }}
 
 go get github.com/revel/revel:
   cmd.run:

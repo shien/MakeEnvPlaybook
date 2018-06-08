@@ -2,6 +2,7 @@ base:
   '*':
     - app
     - user
-    - vim
+#    - vim
     - go
     - mariadb
+    - docker
