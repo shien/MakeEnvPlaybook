@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  roles:
+#    - docker
+#    - go
+    - vim
+    - tmux
+

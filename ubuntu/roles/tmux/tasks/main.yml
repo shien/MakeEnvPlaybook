@@ -1,0 +1,13 @@
+- name: install tmux
+  package:
+    name: tmux
+    state: present
+  become: yes
+
+- name: copy tmux conf
+  copy:
+    src: tmux.conf
+    dest: /home/{{ dev_user }}/.tmux.conf
+    owner: "{{ dev_user }}"
+    group: "{{ dev_user }}"
+    mode: 0644

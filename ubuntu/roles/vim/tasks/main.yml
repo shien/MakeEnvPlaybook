@@ -1,0 +1,29 @@
+---
+- name: install vim
+  package:
+    name: vim
+    state: present
+  become: yes
+
+- name: copy vimrc
+  template:
+      src: vimrc.j2
+      dest: /home/{{ dev_user }}/.vimrc
+      owner: "{{ dev_user }}"
+      group: "{{ dev_user }}"
+      mode: 0644
+
+- name: make vim dein dir
+  file:
+    path: /home/{{ dev_user }}/{{ vim_cache }}
+    state: directory
+    mode: 0755
+
+- name: get module installer
+  get_url:
+    url:  https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+    dest: /tmp
+    mode: 0755
+
+- name: execute installer
+  command: /tmp/installer.sh /home/{{ dev_user }}/{{ vim_cache }}
