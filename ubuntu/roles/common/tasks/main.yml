@@ -1,2 +1,8 @@
 - name: change git editor
   command: git config --global core.editor 'vim -c "set fenc=utf-8"'
+
+- name: register git user
+  command: git config --global user.name "shien"
+
+- name: register git email
+  command: git config --global user.email "sienrizumu@gmail.com"
