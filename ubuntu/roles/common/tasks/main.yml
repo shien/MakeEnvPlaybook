@@ -1,0 +1,2 @@
+- name: change git editor
+  command: git config --global core.editor 'vim -c "set fenc=utf-8"'

@@ -14,3 +14,9 @@ salt-call --local state.highstate
 - vim
 - golang
 - docker
+
+## using ansible
+
+```
+ansible-playbook devenv.yml  --ask-become-pass
+```

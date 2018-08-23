@@ -1,8 +1,9 @@
 ---
 - hosts: localhost
   roles:
-#    - docker
-#    - go
+    - common
+    - docker
+    - golang
     - vim
     - tmux
 

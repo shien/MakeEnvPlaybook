@@ -1,0 +1,42 @@
+- name: install curl
+  package:
+    name: curl
+    state: present
+  become: yes
+
+- name: install apt-transport-https
+  package:
+    name: apt-transport-https
+    state: present
+  become: yes
+
+- name: install software-properties-common
+  package:
+    name: software-properties-common
+    state: present
+  become: yes
+
+- name: install ca-certificates
+  package:
+    name: ca-certificates
+    state: present
+  become: yes
+
+- name: add aptkey
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+  become: yes
+
+- name: apt_repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+  become: yes
+
+- name: update & install docker
+  apt:
+    name: docker-ce
+    update_cache: yes
+  become: yes
+  notify:
+  - start docker daemon

@@ -1,0 +1,26 @@
+- name: make directory for go
+  file:
+    path: /home/{{ dev_user }}/go{{ go_version }}
+    state: directory
+    mode: 0755
+
+- name: check directory exists
+  stat:
+    path: /home/{{ dev_user }}/go{{ go_version }}
+  register: gv
+
+- name: download and unarchive go package
+  unarchive:
+    src: https://dl.google.com/go/{{ go_package }}
+    dest: /home/{{ dev_user }}/go{{ go_version }}
+    remote_src: yes
+  when: not gv.stat.exists
+
+
+- name: put bashrc
+  template:
+      src: bashrc.j2
+      dest: /home/{{ dev_user }}/.bashrc
+      owner: "{{ dev_user }}"
+      group: "{{ dev_user }}"
+      mode: 0644

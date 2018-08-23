@@ -1,2 +1,4 @@
 dev_user: shien07
 vim_cache: .cache
+go_version: 1.10.1
+go_package: go{{ go_version }}.linux-amd64.tar.gz
