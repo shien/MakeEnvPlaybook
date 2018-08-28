@@ -6,3 +6,13 @@
 
 - name: register git email
   command: git config --global user.email "sienrizumu@gmail.com"
+
+- name: add sudoers
+  template:
+    src: devuser.j2
+    dest: /etc/sudoers.d/devuser
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+   
